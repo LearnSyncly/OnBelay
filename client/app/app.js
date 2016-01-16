@@ -31,7 +31,8 @@ angular.module('nova', [
     })
     .state('logout', {
       url: "/logout",
-      controller: function($scope, Auth){
+      controller: function($scope, Auth, AppInfo){
+        AppInfo.user = {};
         Auth.signout();
       }
     })
@@ -47,6 +48,11 @@ angular.module('nova', [
 .controller('AppController',function($rootScope){
   $scope.hasAuth = $rootScope.hasAuth;
   $scope.unread = $rootScope.unread;
+})
+.factory('AppInfo',function(Climbers){
+  var info = {};
+  info.user = {};
+  return info;
 })
 .factory('AttachTokens', function($window){
   var attach = {
