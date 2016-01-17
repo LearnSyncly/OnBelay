@@ -3,6 +3,7 @@ var User = require('../../models').User,
 
 function sendNotification (req, res) {
   var authUser = req.decoded.user;
+  var notificationText = req.body.message; 
   var targetUser = req.body.targetUser;
   var newNotification;
   //find the username
@@ -19,8 +20,11 @@ function sendNotification (req, res) {
             id: sender.id._id,
             username: sender.username
           },
+          message: notificationText,
           recipient: target._id
         });
+
+        console.log('NOTIFICATION', newNotification);
 
         newNotification.save(function(err, notification) {
           if (err) console.error(err);
