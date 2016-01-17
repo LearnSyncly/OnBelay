@@ -3,7 +3,7 @@ var User = require('../../models').User,
 
 function sendNotification (req, res) {
   var authUser = req.decoded.user;
-  var targetUser = req.body.targetUser;
+  var targetUser = req.body.targetUser.username;
   var newNotification;
   //find the username
   User.findOne({ username: authUser }, function(err, sender) {
@@ -13,15 +13,14 @@ function sendNotification (req, res) {
       res.json({ success: false, reason: 'User not found' });
     } else {
       User.findOne({ username: targetUser }, function(err, target) {
-
         newNotification = new Notification({
           sender: {
-            id: sender.id._id,
+            id: sender.id,
             username: sender.username
           },
           recipient: target._id
         });
-
+        
         newNotification.save(function(err, notification) {
           if (err) console.error(err);
           
