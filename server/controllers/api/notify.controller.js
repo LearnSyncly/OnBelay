@@ -24,7 +24,6 @@ function sendNotification (req, res) {
           recipient: target._id
         });
 
-        console.log('NOTIFICATION', newNotification);
 
         newNotification.save(function(err, notification) {
           if (err) console.error(err);
