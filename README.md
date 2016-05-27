@@ -57,6 +57,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
 
 ## Team
 
-  - __Product Owner__: Robert Lin
-  - __Scrum Master__: Brian Tedder
-  - __Development Team Members__: Ryan Jagger, Tiffany Huang
+  - __Product Owner__: Vincent Jo
+  - __Scrum Master__: David Meidlinger
+  - __Development Team Members__: Adam Dobkin, Zan Rosenthal
